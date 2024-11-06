@@ -3,8 +3,6 @@ package j.com.problems;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Given an array of integers nums and an integer target,
@@ -45,27 +43,23 @@ class TwoSum {
     }
 
     private static void testExpectedResult0and1() {
-        logResults(getLogger(), new int[]{2, 7, 11, 15}, 9);
+        logResults(new int[]{2, 7, 11, 15}, 9);
     }
 
     private static void testExpectedResult1and2() {
-        logResults(getLogger(), new int[]{3, 2, 4}, 6);
+        logResults(new int[]{3, 2, 4}, 6);
     }
 
     private static void testExpectedResult0and3() {
-        logResults(getLogger(), new int[]{1, 5, 9, 13}, 14);
+        logResults(new int[]{1, 5, 9, 13}, 14);
     }
 
     private static void testExpectedResult3and4() {
-        logResults(getLogger(), new int[]{1, 3, 7, 9, 2}, 11);
+        logResults(new int[]{1, 3, 7, 9, 2}, 11);
     }
 
-    private static Logger getLogger() {
-        return Logger.getLogger(TwoSum.class.getName());
-    }
-
-    private static void logResults(Logger log, int[] nums, int target) {
-        log.log(Level.INFO, "twoSumArrayIteration: " + Arrays.toString(twoSumArrayIteration(nums, target)) +
+    private static void logResults(int[] nums, int target) {
+        LoggerUtil.log(TwoSum.class, "twoSumArrayIteration: " + Arrays.toString(twoSumArrayIteration(nums, target)) +
                 "\ntwoSumMap: " + Arrays.toString(twoSumMap(nums, target)));
     }
 
