@@ -30,7 +30,6 @@ public class BestTimeToBuyAndSellStock {
         return profit;
     }
 
-
     private static void testExpectedResult5() {
         logResults(new int[]{7, 1, 5, 3, 6, 4});
     }

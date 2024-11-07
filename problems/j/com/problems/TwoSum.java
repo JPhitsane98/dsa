@@ -59,8 +59,8 @@ class TwoSum {
     }
 
     private static void logResults(int[] nums, int target) {
-        LoggerUtil.log(TwoSum.class, "twoSumArrayIteration: " + Arrays.toString(twoSumArrayIteration(nums, target)) +
-                "\ntwoSumMap: " + Arrays.toString(twoSumMap(nums, target)));
+        LoggerUtil.log(TwoSum.class, "twoSumArrayIteration: " + Arrays.toString(twoSumArrayIteration(nums, target)),
+                "twoSumMap: " + Arrays.toString(twoSumMap(nums, target)));
     }
 
 }

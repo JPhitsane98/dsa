@@ -52,7 +52,7 @@ public class ContainsDuplicate {
     }
 
     private static void logResults(int[] nums) {
-        LoggerUtil.log(ContainsDuplicate.class, "containsDuplicateMap: " + containsDuplicateMap(nums) +
+        LoggerUtil.log(ContainsDuplicate.class, "containsDuplicateMap: " + containsDuplicateMap(nums),
                 "\ncontainsDuplicateSet: " + containsDuplicateSet(nums));
     }
 }

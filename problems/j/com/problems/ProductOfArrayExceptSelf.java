@@ -20,10 +20,10 @@ public class ProductOfArrayExceptSelf {
         for (int i = 0; i < nums.length; i++) {
             int product = 1;
             for (int j = 0; j <= i - 1; j++) {
-                product*=nums[j];
+                product *= nums[j];
             }
             for (int j = nums.length - 1; j >= i + 1; j--) {
-                product*=nums[j];
+                product *= nums[j];
             }
             answer[i] = product;
         }
@@ -48,20 +48,18 @@ public class ProductOfArrayExceptSelf {
         return answer;
     }
 
-
     private static void test1() {
         //{24,12,8,6}
-        logResults(new int[]{1,2,3,4});
+        logResults(new int[]{1, 2, 3, 4});
     }
-
 
     private static void test2() {
         //{0,0,9,0,0}
-        logResults(new int[]{-1,1,0,-3,3});
+        logResults(new int[]{-1, 1, 0, -3, 3});
     }
 
     private static void logResults(int[] nums) {
         LoggerUtil.log(ProductOfArrayExceptSelf.class, "productExceptSelfNotMeetingRequirement: " + Arrays.toString(productExceptSelfNotMeetingRequirement(nums))
-                ,"productExceptSelfMeetingRequirement: " + Arrays.toString(productExceptSelfMeetingRequirement(nums)));
+                , "productExceptSelfMeetingRequirement: " + Arrays.toString(productExceptSelfMeetingRequirement(nums)));
     }
 }
