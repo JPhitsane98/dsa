@@ -52,7 +52,7 @@ public class MaximumSubArraySum {
     }
 
     private static void logResults(int[] prices) {
-        LoggerUtil.log(BestTimeToBuyAndSellStock.class, "maxSum: " + maxSum(prices));
+        LoggerUtil.log(MaximumSubArraySum.class, "maxSum: " + maxSum(prices));
     }
 
 }
