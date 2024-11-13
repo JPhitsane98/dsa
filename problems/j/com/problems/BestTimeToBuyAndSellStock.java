@@ -16,7 +16,7 @@ public class BestTimeToBuyAndSellStock {
     }
 
     public static int profitUsingArrayIteration(int[] prices) {
-        int minPrice = Integer.MAX_VALUE;
+        int minPrice = 0;
         int profit = 0;
 
         for (int price : prices) {

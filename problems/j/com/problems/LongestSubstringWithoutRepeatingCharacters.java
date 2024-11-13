@@ -20,7 +20,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         //does not completely work,
         //because instead of clearing everything we should be clearing up till the duplicate
         //and keeping everything after to add on to a new substring
-        int max = Integer.MIN_VALUE;
+        int max = 0;
         Set<Character> sSet= new HashSet<>();
         for (char c : s.toCharArray()) {
             if (sSet.contains(c)) {
