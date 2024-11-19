@@ -14,6 +14,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         testExpectedResult1();
         testExpectedResult4();
         testExpectedResult2();
+        testExpectedResult0();
     }
 
     public static int longestSubstringLength(String s) {
@@ -21,35 +22,35 @@ public class LongestSubstringWithoutRepeatingCharacters {
         //because instead of clearing everything we should be clearing up till the duplicate
         //and keeping everything after to add on to a new substring
         int max = 0;
-        Set<Character> sSet= new HashSet<>();
+        Set<Character> charSet= new HashSet<>();
         for (char c : s.toCharArray()) {
-            if (sSet.contains(c)) {
-                if (sSet.size() > max) {
-                    max = sSet.size();
+            if (charSet.contains(c)) {
+                if (charSet.size() > max) {
+                    max = charSet.size();
                 }
-                sSet.clear();
-                sSet.add(c);
+                charSet.clear();
+                charSet.add(c);
             } else {
-                sSet.add(c);
+                charSet.add(c);
             }
         }
         return max;
     }
 
     public static int longestSubstringLengthRefined(String s) {
-        Set<Character> sSet= new HashSet<>();
+        Set<Character> charSet= new HashSet<>();
         int max = 0;
         int left = 0;
         for (int right = 0; right < s.length(); right++) {
             char c = s.charAt(right);
 
-            while (sSet.contains(c)){
-                //remove everything befire c
-                sSet.remove(s.charAt(left));
+            while (charSet.contains(c)){
+                //remove everything before c
+                charSet.remove(s.charAt(left));
                 left++;
             }
 
-            sSet.add(c);
+            charSet.add(c);
             max = Math.max(max, right-left+1);
         }
         return max;
@@ -69,6 +70,10 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     private static void testExpectedResult2() {
         logResults("abbdbc");
+    }
+
+    private static void testExpectedResult0() {
+        logResults("");
     }
 
     private static void logResults(String s) {
