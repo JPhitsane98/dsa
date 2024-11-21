@@ -17,6 +17,7 @@ public class FindMedianFromDataStream {
     public static void main(String[] args) {
         MedianFinder mf = new MedianFinder();
         mf.addNum(1);
+        mf.findMedian();
         mf.addNum(2);
         mf.findMedian();
         mf.addNum(3);
@@ -26,6 +27,7 @@ public class FindMedianFromDataStream {
 
         MedianFinderOptimized mfo = new MedianFinderOptimized();
         mfo.addNum(1);
+        mf.findMedian(); // fails for only one num
         mfo.addNum(2);
         mfo.findMedian();
         mfo.addNum(3);
@@ -61,22 +63,22 @@ class MedianFinderOptimized {
     private PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
     public void addNum(int num) {
-       if(maxHeap.isEmpty() || num <= maxHeap.peek()){
-           maxHeap.offer(num);
-       }else{
-           minHeap.offer(num);
-       }
-       if(maxHeap.size() > minHeap.size() +1){
-           minHeap.offer(maxHeap.poll());
-       }else if(minHeap.size() > maxHeap.size()){
-           maxHeap.offer(minHeap.poll());
+        if (maxHeap.isEmpty() || num <= maxHeap.peek()) {
+            maxHeap.offer(num);
+        } else {
+            minHeap.offer(num);
+        }
+        if (maxHeap.size() > minHeap.size() + 1) {
+            minHeap.offer(maxHeap.poll());
+        } else if (minHeap.size() > maxHeap.size()) {
+            maxHeap.offer(minHeap.poll());
         }
         System.out.println(maxHeap.toString() + minHeap);
     }
 
     public double findMedian() {
         double median;
-        if(maxHeap.isEmpty()) return 0;
+        if (maxHeap.isEmpty()) return 0;
         if (maxHeap.size() == minHeap.size()) {
             median = (maxHeap.peek() + minHeap.peek()) / 2.0;
         } else {
